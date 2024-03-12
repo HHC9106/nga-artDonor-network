@@ -1,0 +1,438 @@
+/* Quantative Part */
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Disable scrolling for the entire body */
+}
+
+
+/* To re-enable scrolling for a specific element (if needed) */
+.scrollable-content {
+  overflow: auto;
+}
+
+text {
+  font-family: 'Benton', sans-serif;
+  font-size: 10px;
+  color: #292929;
+}
+
+.subtitle {
+  font-family: 'Benton', sans-serif;
+  font-size: 14px;
+  color: #999;
+  margin-left: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5pt;
+}
+
+.subtitle-left {
+  font-family: 'Benton', sans-serif;
+  font-size: 16px;
+  color: #999;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 15px;
+  letter-spacing: 0.5pt;
+}
+
+#ytickText {
+  font-family: 'Benton', sans-serif;
+  font-size: 14px;
+}
+
+.meta-container {
+  /* border: 1px solid orange; */
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 200vw;
+  height: 100vh;
+  /* overflow: hidden; */
+}
+
+#quant-container {
+  /* border: 1px solid black; */
+  background-color: #433FF7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 2s ease-in-out;
+}
+
+#quali-container {
+  /* border: 1px solid red; */
+  background-color: #FDA431;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+#scrollButton,
+#scrollBackButton {
+  position: absolute;
+  border: none;
+  width: 10vw;
+  height: 5vh;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+
+
+#scrollButton:hover,
+#scrollBackButton:hover {
+  transform: scale(1.1);
+  /* Scale to 110% on hover */
+  opacity: 1;
+}
+
+#scrollButton:active,
+#scrollBackButton:active {
+  opacity: 0.2;
+  /* Reduce opacity on click */
+}
+
+#scrollButton {
+  position: absolute;
+  background-color: transparent;
+  background-image: url('./image/page-transit-icon-01.png');
+  /* Replace 'path/to/your/image.png' with the actual path to your PNG image */
+  background-size: contain;
+  /* Adjust this property to 'cover' or 'contain' based on your preference */
+  background-repeat: no-repeat;
+  background-position: center center;
+  right: 0;
+}
+
+#scrollBackButton {
+  position: absolute;
+  background-color: transparent;
+  background-image: url('./image/page-transit-icon-02.png');
+  /* Replace 'path/to/your/image.png' with the actual path to your PNG image */
+  background-size: contain;
+  /* Adjust this property to 'cover' or 'contain' based on your preference */
+  background-repeat: no-repeat;
+  background-position: center center;
+  left: 0;
+}
+
+
+#scrollButton:hover {
+  opacity: 1;
+}
+
+#scrollBackButton:hover {
+  opacity: 1;
+}
+
+#quant-container.fade-out {
+  /* background-color: #292929; */
+  transition: transform 1s ease-in-out;
+}
+
+#quali-container.fade-out {
+  background-color: #292929;
+  opacity: 1;
+  transform: scale(10);
+  transition: transform 1s ease-in-out;
+}
+
+.quant-title {
+  width: 100vw;
+  height: 8vh;
+  background-color: #433FF7;
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  color: white;
+  opacity: 0.9;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.2;
+  font-family: 'Benton', sans-serif;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.quali-title {
+  width: 99vw;
+  height: 8vh;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.2;
+  font-family: 'Benton', sans-serif;
+  margin-right: 15px !important;
+  margin-top: 20px;
+}
+
+#radialviz {
+  display: flex;
+  /* border: 3px solid green; */
+  background-color: rgb(252, 244, 233);
+  width: 100vw;
+  height: 82vh;
+  /* margin-left: 50px; */
+  opacity: 1;
+  transition: opacity 250ms ease;
+  z-index: +1;
+}
+
+#forcegraph {
+  /* border: 10px solid rgb(255, 225, 0); */
+  background-color: white;
+  width: 100vw;
+  height: 82vh;
+  /* flex-grow: 1; */
+  opacity: 1;
+  bottom: 0;
+}
+
+#circlebar {
+  position: absolute;
+  display: flex;
+  /* background-color: transparent; */
+  /* border: 1px solid red; */
+  width: 100vw;
+  height: 20vh;
+  /* font-weight: 800;
+  font-size: 92px;
+  line-height: 1.2; */
+  font-family: 'Benton', sans-serif;
+  bottom: 0;
+}
+
+#mediumbtn {
+  position: absolute;
+  display: flex;
+  /* background-color: transparent; */
+  /* border: 1px solid red; */
+  width: 100vw;
+  height: 20vh;
+  /* font-weight: 800;
+  font-size: 92px;
+  line-height: 1.2; */
+  font-family: 'Benton', sans-serif;
+  bottom: 0;
+}
+
+.filter {
+  background-color: white;
+  width: 100vw;
+  height: 20vh;
+  /* border: 1px solid blue; */
+}
+
+.donors {
+  color: #433ff7;
+}
+
+.artists {
+  color: #FDA431;
+}
+
+.btns {
+  /* border: 1px solid red; */
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100vw;
+  height: 20vh;
+  flex-flow: wrap;
+  margin-right: 30px;
+  top: 10px;
+  font-family: 'Benton', sans-serif;
+}
+
+.button {
+  border: 1px solid grey;
+  opacity: 1;
+  color: grey;
+  font-size: 16px;
+  text-align: center;
+  /* height: 3vh; */
+  padding: 10px;
+  margin: 10px;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.button-radial {
+  font-size: 16px;
+  text-align: center;
+  /* height: 3vh; */
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.button-radial:hover {
+  opacity: 1;
+  color: #433ff7;
+  transition: opacity 250ms ease;
+}
+
+.button:hover {
+  opacity: 0.6;
+  border: 2px solid #FDA431;
+  color: #FDA431;
+  transition: opacity 250ms ease;
+}
+
+.button:click {
+  opacity: 1;
+  border: 2px solid #FDA431;
+  color: #FDA431;
+  transition: opacity 250ms ease;
+}
+
+/* .viz {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 40px;
+    justify-content: space-around;
+} */
+
+
+
+/* Qualitative Part */
+
+.content {
+  color: black;
+}
+
+/* .content {
+    border: 1px solid black;
+    display: flex;
+    align-items: flex-start;
+    width: 100vw;
+    height: 10vh;
+    margin-top: 20px;
+    
+} */
+
+
+.label-group {
+  background: white;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 8px;
+  top: 0;
+  background-color: rgba(224, 224, 224, 0.5);
+  color: #434343;
+  visibility: hidden;
+  z-index: 10000;
+}
+
+#drawer-holder {
+  border-right: 3px solid rgb(255, 225, 0);
+  position: absolute;
+  left: -20vw;
+  top: 0;
+  width: 20vw;
+  height: 100vh;
+  /* margin-left: 50px; */
+  opacity: 1;
+  transition: all 2500ms ease;
+}
+
+.open {
+  transform: translateX(20vw);
+}
+
+.circle-title {
+  font-size: 11px;
+  font-weight: light;
+}
+
+.medium-title {
+  font-size: 12px;
+  font-weight: light;
+  font-family: 'Benton', sans-serif;
+  color:rgba(224, 224, 224, 0.5)
+}
+
+.tooltip-donor {
+  font-size: 24px;
+  /* font-weight: light; */
+  line-height: 1.2;
+  font-family: 'Benton', sans-serif;
+  color: #433ff7 !important;
+}
+
+.tooltip-donor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -10px; /* Adjust the distance from the text as needed */
+  height: 100%;
+  width: 1px; /* Adjust the thickness of the line as needed */
+  background-color: #433ff7; /* Adjust the color of the line as needed */
+}
+
+.tooltip-medium {
+  position: relative;
+  font-size: 24px;
+  /* font-weight: light; */
+  line-height: 1.2;
+  font-family: 'Benton', sans-serif;
+  /* You can adjust this value as needed */
+}
+
+.tooltip-medium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -10px; /* Adjust the distance from the text as needed */
+  height: 100%;
+  width: 1px; /* Adjust the thickness of the line as needed */
+}
+
+
+.tooltip-circle {
+  font-size: 24px;
+  line-height: 1.2;
+  /* font-weight: light; */
+  font-family: 'Benton', sans-serif;
+  /* You can adjust this value as needed */
+}
+
+.tooltip-circle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10px; /* Adjust the distance from the text as needed */
+  height: 100%;
+  width: 1px; /* Adjust the thickness of the line as needed */
+  background-color: #433ff7; /* Adjust the color of the line as needed */
+}
+
+.tooltip-artist {
+  font-size: 24px;
+  line-height: 1.2;
+  /* font-weight: light; */
+  font-family: 'Benton', sans-serif;
+  /* You can adjust this value as needed */
+}
+
+.tooltip-artist::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10px; /* Adjust the distance from the text as needed */
+  height: 100%;
+  width: 1px; /* Adjust the thickness of the line as needed */
+  background-color: #FDA431; /* Adjust the color of the line as needed */
+}

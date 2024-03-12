@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGA Donors and Arts</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="meta-container">
+    <div class="page" id="quant-container">
+      <div class="quant-title">
+        From Donors To Medium
+        <button id="scrollButton"></button>
+      </div>
+      <div id="radialviz"></div>
+      <div class="filter">
+        <div class="subtitle-left">Top 15 Donors and Others</div>
+        <div id="mediumbtn"></div>
+      </div>
+    </div>
+    <div class="page" id="quali-container">
+      <div class="quali-title">
+        From Donors To Artists
+        <button id="scrollBackButton">
+        </button>
+      </div>
+      <!-- <div id="drawer-holder"></div> -->
+      <div id="forcegraph"></div>
+      <div class="filter">
+        <div class="subtitle">Donated Year</div>
+        <div id="circlebar"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/radial.js"></script>
+  <script src="./js/forceFunction.js"></script>
+  <script src="./js/circlebar.js"></script>
+  <script src="./js/mediumbtn.js"></script>
+  <script src="./js/transition.js"></script>
+
+</body>
+
+</html>
